@@ -11,9 +11,9 @@ chikkarpy は [Sudachi 同義語辞書](https://github.com/WorksApplications/Sud
 
 単体でも同義語辞書の検索ツールとして利用できます。
 
-## 利用方法 Ussage
+## 利用方法 Usage
 ## TL;DR
-```
+```bash
 $ pip install chikkarpy
 
 $ echo "閉店" | chikkarpy
@@ -21,12 +21,12 @@ $ echo "閉店" | chikkarpy
 ```
 
 ## Step 1. chikkarpyのインストール
-```
+```bash
 $ pip install chikkarpy
 ```
 ## Step 2. 使用方法
 ### コマンドライン
-```
+```bash
 $ echo "閉店" | chikkarpy
 閉店    クローズ,close,店仕舞い
 ```
@@ -34,7 +34,7 @@ chikkarpyは入力された単語を見て一致する同義語のリストを�
 同義語辞書内の曖昧性フラグが`1`の見出し語をトリガーにすることはできません。
 出力は`クエリ\t同義語リスト`の形式です。
 
-```
+```bash
 $ chikkarpy search -h
 usage: chikkarpy search [-h] [-d [file [file ...]]] [-ev] [-o file] [-v]
                         [file [file ...]]
@@ -58,17 +58,24 @@ optional arguments:
 複数辞書を読み込む場合は順番に注意してください。
 以下の場合，user2 > user > system の順で同義語を検索して見つかった時点で検索結果を返します。
 
-```
+```bash
 chikkarpy -d system.dic user.dic user2.dic
 ```
 
 また、出力はデフォルトで**体言**のみです。
 **用言**も出力したい場合は`-ev`を有効にしてください。
 
+```bash
+$ echo "開放" | chikkarpy
+開放	オープン,open
+$ echo "開放" | chikkarpy -ev
+開放	開け放す,開く,オープン,open
+```
+
 
 ### python ライブラリ
 使用例
-```
+```python
 from chikkarpy import Chikkar
 from chikkarpy.dictionarylib import Dictionary
 
@@ -100,11 +107,11 @@ print(chikkar.find("開放"))
 新しく辞書を追加する場合は、利用前にバイナリ形式辞書の作成が必要です。
 Before using new dictionary, you need to create a binary format dictionary.
 
-```
+```bash
 $ chikkarpy build -i synonym_dict.csv -o system.dic 
 ```
 
-```
+```bash
 $ chikkarpy build -h
 usage: chikkarpy build [-h] -i file [-o file] [-d string]
 
@@ -116,6 +123,18 @@ optional arguments:
   -o file     output file (default: synonym.dic)
   -d string   description comment to be embedded on dictionary
 ```
+
+## 開発者向け
+
+### Code Format
+
+`scripts/lint.sh` を実行して、コードが正しいフォーマットかを確認してください。
+
+`flake8` `flake8-import-order` `flake8-builtins` が必要です。
+
+### Test
+
+`scripts/test.sh` を実行してテストしてください。
 
 ## Contact
 
