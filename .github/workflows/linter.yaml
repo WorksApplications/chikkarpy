@@ -1,0 +1,25 @@
+name: linter
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    types: [opened, synchronize, reopend]
+    branches: [master]
+
+jobs:
+  linter:
+    name: flake8 linter
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 flake8-builtins flake8-import-order
+      
+      - name: Code style check by flake8
+        run: |
+          cd scripts && ./lint.sh
