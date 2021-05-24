@@ -104,6 +104,18 @@ Before using new dictionary, you need to create a binary format dictionary.
 $ chikkarpy build -i synonym_dict.csv -o system.dic 
 ```
 
+```
+$ chikkarpy build -h
+usage: chikkarpy build [-h] -i file [-o file] [-d string]
+
+Build Synonym Dictionary
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i file     dictionary file (csv)
+  -o file     output file (default: synonym.dic)
+  -d string   description comment to be embedded on dictionary
+```
 
 ## Contact
 
