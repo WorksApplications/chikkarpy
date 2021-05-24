@@ -20,13 +20,16 @@ from setuptools import find_packages, setup
 download_dictionary()
 
 setup(
-    name="ChikkarPy",
-    description="Python version of Chikkar, a library for using the Sudachi synonym dictionary",
+    name="chikkarpy",
+    use_scm_version=True,
+    setup_requires=['setuptools_scm'],
+    description="Python version of chikkar, a library for using the Sudachi synonym dictionary",
     long_description=open('README.md', encoding='utf-8').read(),
     long_description_content_type="text/markdown",
-    url="",
+    url="https://github.com/WorksApplications/chikkarpy",
     license="Apache-2.0",
     author="Works Applications",
+    author_email="sudachi@worksap.co.jp",
     packages=find_packages(include=["chikkarpy", "chikkarpy.*"]),
     package_data={"": ["resources/*"]},
     entry_points={
