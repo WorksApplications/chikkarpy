@@ -28,7 +28,7 @@ $ pip install chikkarpy
 ```
 
 ## Step 2. 使用方法 Usage
-### コマンドライン commandline
+### コマンドライン Command Line
 ```bash
 $ echo "閉店" | chikkarpy
 閉店    クローズ,close,店仕舞い
@@ -104,13 +104,13 @@ chikkar.add_dictionary(system_dic)
 print(chikkar.find("閉店"))
 # => ['クローズ', 'close', '店仕舞い']
 
-print(chikkar.find("閉店", group_ids=[5])) # グループIDによる検索
+print(chikkar.find("閉店", group_ids=[5])) # グループIDによる検索 Search by group ID
 # => ['クローズ', 'close', '店仕舞い']
 
 print(chikkar.find("開放"))
 # => ['オープン', 'open']
 
-chikkar.enable_verb() # 用言の出力制御（デフォルトは体言のみ出力）
+chikkar.enable_verb() # 用言の出力制御（デフォルトは体言のみ出力） Output control of verbs (default is to output only nouns)
 print(chikkar.find("開放"))
 # => ['開け放す', '開く', 'オープン', 'open']
 
