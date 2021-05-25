@@ -5,12 +5,11 @@
 [![](https://img.shields.io/github/license/t-yamamura/chikkarpy.svg)](https://github.com/t-yamamura/chikkarpy/blob/master/LICENSE)
 
 chikkarpyは[chikkar](https://github.com/WorksApplications/chikkar)のPython版です。 
-chikkarpy is a Python version of chikkar.
-
 chikkarpy は [Sudachi 同義語辞書](https://github.com/WorksApplications/SudachiDict/blob/develop/docs/synonyms.md)を利用し、[SudachiPy](https://github.com/WorksApplications/SudachiPy)の出力に同義語展開を追加するために開発されたライブラリです。
-chikkarpy is developed to utilize the Sudachi synonym dictionary and add synonym expansion to the output of SudachiPy.
-
 単体でも同義語辞書の検索ツールとして利用できます。
+
+chikkarpy is a Python version of [chikkar](https://github.com/WorksApplications/chikkar).
+chikkarpy is developed to utilize the [Sudachi synonym dictionary](https://github.com/WorksApplications/SudachiDict/blob/develop/docs/synonyms.md) and add synonym expansion to the output of [SudachiPy](https://github.com/WorksApplications/SudachiPy).
 This library alone can be used as a search tool for our synonym dictionaries.
 
 ## 利用方法 Usage
