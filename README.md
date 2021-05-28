@@ -41,6 +41,11 @@ You cannot use a headword with an ambiguity flag of `1` in a synonym dictionary 
 出力は`クエリ\t同義語リスト`の形式です。
 The output is in the form of a `query \t synonym list`.
 
+デフォルトの [Sudachi 同義語辞書](https://github.com/WorksApplications/SudachiDict/blob/develop/docs/synonyms.md) の見出し語は、
+SudachiPyの正規化形 (`normalized_form()`) で登録されています。
+
+The headwords in the Sudachi synonym dictionary are registered in SudachiPy's normalized form, `normalized_form()`.
+
 ```bash
 $ chikkarpy search -h
 usage: chikkarpy search [-h] [-d [file [file ...]]] [-ev] [-o file] [-v]
@@ -97,7 +102,8 @@ from chikkarpy.dictionarylib import Dictionary
 
 chikkar = Chikkar()
 
-system_dic = Dictionary("system.dic", False)
+# デフォルトのシステム同義語辞書を使う場合，Dictionaryの引数は省略可能 You may omit the ``Dictionary`` arguments if you want to use the system synonym dictionary
+system_dic = Dictionary()
 chikkar.add_dictionary(system_dic)
 
 print(chikkar.find("閉店"))
@@ -112,13 +118,28 @@ print(chikkar.find("開放"))
 chikkar.enable_verb() # 用言の出力制御（デフォルトは体言のみ出力） Output control of verbs (default is to output only nouns)
 print(chikkar.find("開放"))
 # => ['開け放す', '開く', 'オープン', 'open']
-
 ```
 
 `chikkar.add_dictionary()`で複数の辞書を読み込ませる場合は順番に注意してください。
 最後に読み込んだ辞書を優先して検索します。
+また、`enable_trie`を`False`に設定した辞書では、同義語を検索するときに見出し語よりもグループIDを優先して検索します。
+
 When you read multiple dictionaries with `chikkar.add_dictionary()`, pay attention to the order.
 Priority is given to the last read dictionary.
+If ``enable_trie`` is ``False``, a search by synonym group IDs takes precedence over a search by the headword.
+
+```python
+chikkar = Chikkar()
+
+system_dic = Dictionary(enable_trie=False)
+user_dic = Dictionary(user_dict_path, enable_trie=True)
+user2_dic = Dictionary(user_dict_path, enable_trie=True)
+
+chikkar.add_dictionary(system_dic)
+chikkar.add_dictionary(user_dic)
+chikkar.add_dictionary(user2_dic)
+```
+
 
 ## 辞書の作成 Build a dictionary
 
