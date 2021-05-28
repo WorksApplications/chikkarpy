@@ -25,7 +25,7 @@ class Dictionary(object):
     def __init__(self, filename=None, enable_trie=False):
         """Reads the synonym dictionary from the specified file.
 
-        If ``enableTrie`` is ``False``, a search by synonym group IDs takes precedence over a search by the headword.
+        If ``enable_trie`` is ``False``, a search by synonym group IDs takes precedence over a search by the headword.
 
         Args:
             filename (str | None): path of synonym dictionary file
