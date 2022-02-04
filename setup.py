@@ -12,12 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from chikkarpy.config import download_dictionary
-
 from setuptools import find_packages, setup
 
+from chikkarpy.config import download_dictionary
 
-download_dictionary()
 
 setup(
     name="chikkarpy",
@@ -40,3 +38,6 @@ setup(
         "sortedcontainers~=2.1.0"
     ]
 )
+
+# Downloads the Sudachi Synonym dictionary
+download_dictionary()
