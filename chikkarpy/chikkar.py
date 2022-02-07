@@ -12,7 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .dictionarylib import Dictionary
+from typing import TYPE_CHECKING
+
+
+if TYPE_CHECKING:
+    from .dictionarylib import Dictionary
 
 
 class Chikkar(object):

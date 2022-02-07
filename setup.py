@@ -16,9 +16,6 @@ from chikkarpy.config import download_dictionary
 
 from setuptools import find_packages, setup
 
-
-download_dictionary()
-
 setup(
     name="chikkarpy",
     use_scm_version=True,
@@ -37,6 +34,9 @@ setup(
     },
     install_requires=[
         "dartsclone~=0.9.0",
-        "sortedcontainers~=2.1.0"
+        "sortedcontainers>=2.1.0"
     ]
 )
+
+# Downloads the Sudachi Synonym dictionary
+download_dictionary()
