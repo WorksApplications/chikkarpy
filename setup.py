@@ -35,7 +35,7 @@ setup(
     },
     install_requires=[
         "dartsclone~=0.9.0",
-        "sortedcontainers~=2.1.0"
+        "sortedcontainers>=2.1.0"
     ]
 )
 
