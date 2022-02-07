@@ -12,10 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from setuptools import find_packages, setup
-
 from chikkarpy.config import download_dictionary
 
+from setuptools import find_packages, setup
 
 setup(
     name="chikkarpy",
